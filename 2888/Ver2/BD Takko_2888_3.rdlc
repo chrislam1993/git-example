@@ -1,0 +1,3671 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Report xmlns:rd="http://schemas.microsoft.com/SQLServer/reporting/reportdesigner" xmlns="http://schemas.microsoft.com/sqlserver/reporting/2008/01/reportdefinition">
+  <DataSources>
+    <DataSource Name="TUEV_CN">
+      <ConnectionProperties>
+        <DataProvider>ORACLE</DataProvider>
+        <ConnectString>Data Source=TUEV_CN;Unicode=True</ConnectString>
+      </ConnectionProperties>
+      <rd:DataSourceID>70a2cc6f-1d59-41f3-bd42-85b5d132175f</rd:DataSourceID>
+      <rd:SecurityType>DataBase</rd:SecurityType>
+    </DataSource>
+  </DataSources>
+  <DataSets>
+    <DataSet Name="BSSREP_REPORT_METHOD_RM">
+      <Fields>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_ID">
+          <DataField>METHOD_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="RECORD_ID">
+          <DataField>RECORD_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="REPORT_ID">
+          <DataField>REPORT_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="BUSINESS_LOCATION_ID">
+          <DataField>BUSINESS_LOCATION_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ACF">
+          <DataField>ACF</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AUDT_CREATION_DATE">
+          <DataField>AUDT_CREATION_DATE</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="AUDT_CREATION_USER">
+          <DataField>AUDT_CREATION_USER</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AUDT_LAST_CHANGE_DATE">
+          <DataField>AUDT_LAST_CHANGE_DATE</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="AUDT_LAST_CHANGE_USER">
+          <DataField>AUDT_LAST_CHANGE_USER</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DUEDATE_ID">
+          <DataField>DUEDATE_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SEQUENCE">
+          <DataField>SEQUENCE</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CHECKLIST_ID">
+          <DataField>CHECKLIST_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DUEDATE_RM_ID">
+          <DataField>DUEDATE_RM_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="REMARK_CONTENT">
+          <DataField>REMARK_CONTENT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="REMARK">
+          <DataField>REMARK</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SYMBOL">
+          <DataField>SYMBOL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RECORD_LOCK_FLAG">
+          <DataField>RECORD_LOCK_FLAG</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="REPORT_METHOD_NEW_ID">
+          <DataField>REPORT_METHOD_NEW_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_REMARK_NEW_ID">
+          <DataField>METHOD_REMARK_NEW_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="END">
+          <DataField>END</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="REMARK_POSITION">
+          <DataField>REMARK_POSITION</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>TUEV_CN</DataSourceName>
+        <CommandText>SELECT s.Method_Id, t.*
+  FROM Bssrep_Report_Method_New s
+  LEFT JOIN Bssrep_Report_Method_Rm t
+    ON t.Report_Method_New_Id = s.Id
+ WHERE s.Report_Id = :REPORT_ID</CommandText>
+        <QueryParameters>
+          <QueryParameter Name=":REPORT_ID">
+            <Value>=Parameters!REPORT_ID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="BSCORE_CONDITION">
+      <Fields>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="RECORD_ID">
+          <DataField>RECORD_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="REMARK">
+          <DataField>REMARK</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="BUSINESS_LOCATION_ID">
+          <DataField>BUSINESS_LOCATION_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ACF">
+          <DataField>ACF</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AUDT_CREATION_DATE">
+          <DataField>AUDT_CREATION_DATE</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="AUDT_CREATION_USER">
+          <DataField>AUDT_CREATION_USER</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AUDT_LAST_CHANGE_DATE">
+          <DataField>AUDT_LAST_CHANGE_DATE</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="AUDT_LAST_CHANGE_USER">
+          <DataField>AUDT_LAST_CHANGE_USER</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TEST_CONDITION_ID">
+          <DataField>TEST_CONDITION_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TEST_CONDITION_PARTS_ID">
+          <DataField>TEST_CONDITION_PARTS_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CHECKLIST_DUEDATE_ID">
+          <DataField>CHECKLIST_DUEDATE_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CONDITION_NAME">
+          <DataField>CONDITION_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SUBORDER_NUMBER">
+          <DataField>SUBORDER_NUMBER</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="REFERENCE_TEXT">
+          <DataField>REFERENCE_TEXT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="IN_REPORT_TEXT">
+          <DataField>IN_REPORT_TEXT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_ID">
+          <DataField>METHOD_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_VERSION">
+          <DataField>METHOD_VERSION</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>TUEV_CN</DataSourceName>
+        <CommandText>SELECT t.*
+  FROM Bscore_Condition t
+    where t.Checklist_Duedate_Id in  (SELECT distinct v.checklist_duedate_id
+          FROM bssrep_report_sample v
+         WHERE v.Report_Id = :REPORT_ID)
+</CommandText>
+        <QueryParameters>
+          <QueryParameter Name=":REPORT_ID">
+            <Value>=Parameters!REPORT_ID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="DUMMY">
+      <Fields>
+        <Field Name="SYSDATE">
+          <DataField>SYSDATE</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>TUEV_CN</DataSourceName>
+        <CommandText>select sysdate from dual</CommandText>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="RESULT_TEXTILE_CHEM_XY">
+      <Fields>
+        <Field Name="COMPOSITE_NO">
+          <DataField>COMPOSITE_NO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SAMPLE_ID">
+          <DataField>SAMPLE_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="MATERIAL_NO">
+          <DataField>MATERIAL_NO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PASS_FAIL_DISPLAY">
+          <DataField>PASS_FAIL_DISPLAY</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PASS_FAIL_INDICATOR">
+          <DataField>PASS_FAIL_INDICATOR</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PAGE_NO">
+          <DataField>PAGE_NO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="TEST_PARAMETER_ID">
+          <DataField>TEST_PARAMETER_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PARAMETER_NAME">
+          <DataField>PARAMETER_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PARAMETER_NAME_FOR_TEST_REPORT">
+          <DataField>PARAMETER_NAME_FOR_TEST_REPORT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PARAMETER_SHORT_NAME">
+          <DataField>PARAMETER_SHORT_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RESULT">
+          <DataField>RESULT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LIMIT_DISPLAY">
+          <DataField>LIMIT_DISPLAY</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PRINT_IN_REPORT">
+          <DataField>PRINT_IN_REPORT</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="LIMIT_VIOLATION">
+          <DataField>LIMIT_VIOLATION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_ID">
+          <DataField>METHOD_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CAS_NO">
+          <DataField>CAS_NO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RESULT_ID">
+          <DataField>RESULT_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_VERSION">
+          <DataField>METHOD_VERSION</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SNO">
+          <DataField>SNO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="UNIT_NAME">
+          <DataField>UNIT_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MDL">
+          <DataField>MDL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="METHOD">
+          <DataField>METHOD</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="WEIGHT">
+          <DataField>WEIGHT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RESULT_FORMAT">
+          <DataField>RESULT_FORMAT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="X1">
+          <DataField>X1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="X2">
+          <DataField>X2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="X3">
+          <DataField>X3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Y1">
+          <DataField>Y1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Y2">
+          <DataField>Y2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Y3">
+          <DataField>Y3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Z1">
+          <DataField>Z1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Z2">
+          <DataField>Z2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Z3">
+          <DataField>Z3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="REMARK_PICTURE_PATH">
+          <DataField>REMARK_PICTURE_PATH</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="CHECKLIST_CONDITION_ID">
+          <DataField>CHECKLIST_CONDITION_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SAMPLE_SNO">
+          <DataField>SAMPLE_SNO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="REQUIREMENT_FULL_STRING">
+          <DataField>REQUIREMENT_FULL_STRING</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="TEST_PARAM_FULL_STRING">
+          <DataField>TEST_PARAM_FULL_STRING</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="REQUIREMENT_HEADER">
+          <DataField>REQUIREMENT_HEADER</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="ROWNUMBER">
+          <DataField>ROWNUMBER</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PARAMETER_V1">
+          <DataField>PARAMETER_V1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PARAMETER_V2">
+          <DataField>PARAMETER_V2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PARAMETER_V3">
+          <DataField>PARAMETER_V3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>TUEV_CN</DataSourceName>
+        <CommandText>SELECT s.*, t.Rownumber
+  FROM (SELECT Sample.Composite_No,
+               Sample.Id                             Sample_Id,
+               Sample.Material_No,
+               Sample.Pass_Fail_Display,
+               Sample.Pass_Fail_Indicator,
+               Sample.Page_No,
+               Sample_Result.Test_Parameter_Id,
+               Param.Name                            Parameter_Name,
+               Param.Name_For_Test_Report            Parameter_Name_For_Test_Report,
+               Param.Short_Name                      Parameter_Short_Name,
+               Sample_Result.Result,
+               Sample_Result.Limit_Display,
+               Sample_Result.Print_In_Report,
+               Sample_Result.Limit_Violation,
+               Sample_Result.Method_Id,
+               Param.Cas_No,
+               Sample_Result.Id                      Result_Id,
+               Sample_Result.Method_Version,
+               Sample_Result.Sno,
+               Sample_Result.Unit                    Unit_Name,
+               Sample_Result.Method_Detection_Limit  Mdl,
+               Bscoresample.Classification_Statement Method,
+               Bscoresample.Weight_Under_100         Weight,
+               Sample_Result.Result_Format,
+               Sample_Result.X1,
+               Sample_Result.X2,
+               Sample_Result.X3,
+               Sample_Result.Y1,
+               Sample_Result.Y2,
+               Sample_Result.Y3,
+               Sample_Result.Z1,
+               Sample_Result.Z2,
+               Sample_Result.Z3,
+               Sample_Result.Remark_Picture_Path,
+               Bscoresample.checklist_condition_id,
+Sample.sno sample_sno,
+sysdate "REQUIREMENT_FULL_STRING",
+sysdate "TEST_PARAM_FULL_STRING",
+sysdate "REQUIREMENT_HEADER",
+               param.v1                              Parameter_v1,
+               param.v2                              Parameter_v2,    
+               param.v3                              Parameter_v3
+          FROM (SELECT *
+                  FROM Bssrep_Report_Sample
+                 WHERE Report_Id = :REPORT_ID) SAMPLE
+          LEFT JOIN (SELECT t.*, y.Method_Detection_Limit
+                      FROM Bssrep_Report_Smpl_Result t
+                      LEFT JOIN Bscore_Result y
+                        ON y.Id = t.Result_Id
+                     WHERE t.Report_Id = :REPORT_ID) Sample_Result
+            ON Sample.Id = Sample_Result.Report_Sample_Id
+          LEFT JOIN (SELECT *
+                      FROM Bstm_Test_Parameter
+                     WHERE Id IN (SELECT DISTINCT Test_Parameter_Id
+                                    FROM Bssrep_Report_Smpl_Result
+                                   WHERE Report_Id = :REPORT_ID)) Param
+            ON Param.Id = Sample_Result.Test_Parameter_Id
+          LEFT JOIN (SELECT *
+                      FROM Bsunit_Unit
+                     WHERE Id IN (SELECT DISTINCT Unit_Id
+                                    FROM Bssrep_Report_Smpl_Result
+                                   WHERE Report_Id = :REPORT_ID)) Unit
+            ON Param.Unit_Id = Unit.Id
+        
+          LEFT JOIN (SELECT *
+                      FROM Bscore_Sample s
+                     WHERE s.Id IN (SELECT Sample_Id
+                                      FROM Bssrep_Report_Sample
+                                     WHERE Report_Id = :REPORT_ID)) Bscoresample
+            ON Bscoresample.Id = Sample.Sample_Id) s
+
+  LEFT JOIN (SELECT DISTINCT Ceil(Rownum / :Sample_Per_Row) AS Rownumber,
+                             Bssrep_Report_Sample.Composite_No,
+                             Bssrep_Report_Sample.Material_No
+               FROM Bssrep_Report_Sample
+              WHERE Report_Id = :REPORT_ID
+                AND Bssrep_Report_Sample.Method_New_Id IN
+                    (SELECT Id
+                       FROM Bssrep_Report_Method_New
+                      WHERE Report_Id = :REPORT_ID
+                        AND Method_Id = :Method_Id)
+              ORDER BY Bssrep_Report_Sample.Composite_No,
+                       Bssrep_Report_Sample.Material_No) t
+    ON s.Composite_No = t.Composite_No
+   AND s.Material_No = t.Material_No</CommandText>
+        <QueryParameters>
+          <QueryParameter Name=":REPORT_ID">
+            <Value>=Parameters!REPORT_ID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name=":Sample_Per_Row">
+            <Value>=Parameters!SAMPLE_PER_ROW.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name=":Method_Id">
+            <Value>=Parameters!METHOD_ID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="BSSREP_REPORT_METHOD_NEW">
+      <Fields>
+        <Field Name="ID">
+          <DataField>ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="RECORD_ID">
+          <DataField>RECORD_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="REPORT_ID">
+          <DataField>REPORT_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_ID">
+          <DataField>METHOD_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_VERSION">
+          <DataField>METHOD_VERSION</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="BUSINESS_LOCATION_ID">
+          <DataField>BUSINESS_LOCATION_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="ACF">
+          <DataField>ACF</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AUDT_CREATION_DATE">
+          <DataField>AUDT_CREATION_DATE</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="AUDT_CREATION_USER">
+          <DataField>AUDT_CREATION_USER</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="AUDT_LAST_CHANGE_DATE">
+          <DataField>AUDT_LAST_CHANGE_DATE</DataField>
+          <rd:TypeName>System.DateTime</rd:TypeName>
+        </Field>
+        <Field Name="AUDT_LAST_CHANGE_USER">
+          <DataField>AUDT_LAST_CHANGE_USER</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PASS_FAIL_SUMMARY">
+          <DataField>PASS_FAIL_SUMMARY</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="REPORT_REMARK">
+          <DataField>REPORT_REMARK</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ABBREVIATIONS_FOR_TEST_REPORT">
+          <DataField>ABBREVIATIONS_FOR_TEST_REPORT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TEST_PERIOD">
+          <DataField>TEST_PERIOD</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="DUEDATE_ID">
+          <DataField>DUEDATE_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="STATUS">
+          <DataField>STATUS</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SHOW_FLOWCHART">
+          <DataField>SHOW_FLOWCHART</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_FLOWCHART_ID">
+          <DataField>METHOD_FLOWCHART_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SEQUENCE">
+          <DataField>SEQUENCE</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_REMARK_ID">
+          <DataField>METHOD_REMARK_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CHECKLIST_ID">
+          <DataField>CHECKLIST_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="REPORT_ALTERNATIVE">
+          <DataField>REPORT_ALTERNATIVE</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_NAME">
+          <DataField>METHOD_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TEST_SPECIFICATION">
+          <DataField>TEST_SPECIFICATION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PASS_FAIL_DISPLAY">
+          <DataField>PASS_FAIL_DISPLAY</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_NAME_REPORT">
+          <DataField>METHOD_NAME_REPORT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RESULTTABLE_VIEWNAME">
+          <DataField>RESULTTABLE_VIEWNAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TEST_CONDITION">
+          <DataField>TEST_CONDITION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TEST_SPEC_PRINT_FLAG">
+          <DataField>TEST_SPEC_PRINT_FLAG</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="DAP_TEST">
+          <DataField>DAP_TEST</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CNAS_TEST">
+          <DataField>CNAS_TEST</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="NAME_2_FOR_TEST_REPORT">
+          <DataField>NAME_2_FOR_TEST_REPORT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TEST_NUMBER">
+          <DataField>TEST_NUMBER</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="COMBINE_TEMPLATE_FLAG">
+          <DataField>COMBINE_TEMPLATE_FLAG</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="END">
+          <DataField>END</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="FORMAT_REMARK_TABLE">
+          <DataField>FORMAT_REMARK_TABLE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="OEKO_TEX">
+          <DataField>OEKO_TEX</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="FORMAT_RESULT_TABLE">
+          <DataField>FORMAT_RESULT_TABLE</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SHOW_CONCLUSION">
+          <DataField>SHOW_CONCLUSION</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CUSTOMER_REQUIREMENT">
+          <DataField>CUSTOMER_REQUIREMENT</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="NEW_PAGE_FLAG">
+          <DataField>NEW_PAGE_FLAG</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="REQUIREMENT_HEADER">
+          <DataField>REQUIREMENT_HEADER</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>TUEV_CN</DataSourceName>
+        <CommandText>select * from bssrep_report_method_new where report_id = :REPORT_ID</CommandText>
+        <QueryParameters>
+          <QueryParameter Name=":REPORT_ID">
+            <Value>=Parameters!REPORT_ID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="RESULT">
+      <Fields>
+        <Field Name="COMPOSITE_NO">
+          <DataField>COMPOSITE_NO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MATERIAL_NO">
+          <DataField>MATERIAL_NO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SAMPLE_ID">
+          <DataField>SAMPLE_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SEPARATION">
+          <DataField>SEPARATION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TEST_PARAMETER_ID">
+          <DataField>TEST_PARAMETER_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PASS_FAIL_DISPLAY">
+          <DataField>PASS_FAIL_DISPLAY</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PASS_FAIL_INDICATOR">
+          <DataField>PASS_FAIL_INDICATOR</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SAMPLE_REMARK">
+          <DataField>SAMPLE_REMARK</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PAGE_NO">
+          <DataField>PAGE_NO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PARAMETER_NAME">
+          <DataField>PARAMETER_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RESULT">
+          <DataField>RESULT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PARAMETER_NAME_FOR_TEST_REPORT">
+          <DataField>PARAMETER_NAME_FOR_TEST_REPORT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PARAMETER_SHORT_NAME">
+          <DataField>PARAMETER_SHORT_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_ID">
+          <DataField>METHOD_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_VERSION">
+          <DataField>METHOD_VERSION</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PRINT_IN_REPORT">
+          <DataField>PRINT_IN_REPORT</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="LIMIT_VIOLATION">
+          <DataField>LIMIT_VIOLATION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="UNIT_NAME">
+          <DataField>UNIT_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RESULT_ID">
+          <DataField>RESULT_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CAS_NO">
+          <DataField>CAS_NO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SNO">
+          <DataField>SNO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="LIMIT_DISPLAY">
+          <DataField>LIMIT_DISPLAY</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MDL">
+          <DataField>MDL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="METHOD">
+          <DataField>METHOD</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="WEIGHT">
+          <DataField>WEIGHT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TESTING_PERIOD">
+          <DataField>TESTING_PERIOD</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ROWNUMBER">
+          <DataField>ROWNUMBER</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="REMARK_PICTURE_PATH">
+          <DataField>REMARK_PICTURE_PATH</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RESULT_FORMAT">
+          <DataField>RESULT_FORMAT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SAMPLE_SNO">
+          <DataField>SAMPLE_SNO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="REMARK">
+          <DataField>REMARK</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PRODUCT_TYPE_ID">
+          <DataField>PRODUCT_TYPE_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="MIGRATION_CATERGORY">
+          <DataField>MIGRATION_CATERGORY</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>TUEV_CN</DataSourceName>
+        <CommandText>SELECT s.*, t.Rownumber
+  FROM (SELECT Sample.Composite_No,
+               Sample.Id                             Sample_Id,'' as separation,
+               Sample.Material_No,
+               Sample.Pass_Fail_Display,
+               Sample.Pass_Fail_Indicator,
+               Sample.Page_No,
+               Sample.remark  			     Sample_remark,	
+               Sample_Result.Test_Parameter_Id,
+               Param.Name                            Parameter_Name,
+               Param.Name_For_Test_Report            Parameter_Name_For_Test_Report,
+               Param.Short_Name                      Parameter_Short_Name,
+               Sample_Result.Result,
+               Sample_Result.Limit_Display,
+               Sample_Result.Print_In_Report,
+               Sample_Result.Limit_Violation,
+               Sample_Result.Method_Id,
+               Param.Cas_No,
+               Sample_Result.Id                      Result_Id,
+               Sample_Result.Method_Version,
+               Sample_Result.Sno,
+               Sample_Result.Unit                    Unit_Name,
+               Sample_Result.Method_Detection_Limit  Mdl,
+
+	      ( to_char(Bscoresample.REGISTRATION_DATE, 'YYYY-MM-DD')||' - '||to_char(Bscoresample.TEST_COMPLETION_DATE, 'YYYY-MM-DD'))  Testing_Period,  
+   
+               Bscoresample.Classification_Statement Method,
+               Bscoresample.Weight_Under_100         Weight,
+               Sample_Result.Result_Format,
+               Sample_Result.Remark_Picture_Path,
+		Sample.SNO Sample_SNO,
+		Sample_Result.Remark,
+		bscust_component.product_type_id,
+		BSTM_REFERENCE_MATRIX.MIGRATION_CATERGORY
+          FROM (SELECT *
+                  FROM Bssrep_Report_Sample
+                 WHERE Report_Id = :Report_Id) SAMPLE
+          LEFT JOIN (SELECT t.*, y.Method_Detection_Limit
+                      FROM Bssrep_Report_Smpl_Result t
+                      LEFT JOIN Bscore_Result y
+                        ON y.Id = t.Result_Id
+                     WHERE t.Report_Id = :Report_Id) Sample_Result
+            ON Sample.Id = Sample_Result.Report_Sample_Id
+          LEFT JOIN (SELECT *
+                      FROM Bstm_Test_Parameter
+                     WHERE Id IN (SELECT DISTINCT Test_Parameter_Id
+                                    FROM Bssrep_Report_Smpl_Result
+                                   WHERE Report_Id = :Report_Id)) Param
+            ON Param.Id = Sample_Result.Test_Parameter_Id
+          LEFT JOIN (SELECT *
+                      FROM Bsunit_Unit
+                     WHERE Id IN (SELECT DISTINCT Unit_Id
+                                    FROM Bssrep_Report_Smpl_Result
+                                   WHERE Report_Id = :Report_Id)) Unit
+            ON Param.Unit_Id = Unit.Id
+        
+          LEFT JOIN (SELECT *
+                      FROM Bscore_Sample s
+                     WHERE s.Id IN (SELECT Sample_Id
+                                      FROM Bssrep_Report_Sample
+                                     WHERE Report_Id = :Report_Id)) Bscoresample
+            ON Bscoresample.Id = Sample.Sample_Id
+            
+            left join (select * from bscore_sample_components where sample_id in (SELECT Sample_Id
+                                      FROM Bssrep_Report_Sample
+                                     WHERE Report_Id = :Report_Id)) BscoreSmplComp
+            on sample.sample_id = BscoreSmplComp.sample_id 
+            
+            left join bscust_component on bscoresmplcomp.COMPONENT_ID = bscust_component.id
+
+	    left join BSTM_REFERENCE_MATRIX on bscust_component.reference_matrix_id = BSTM_REFERENCE_MATRIX.id
+           
+            ) s
+  LEFT JOIN (SELECT DISTINCT Ceil(Rownum / :Sample_Per_Row) AS Rownumber,
+                             Bssrep_Report_Sample.Composite_No,
+                             Bssrep_Report_Sample.Material_No
+               FROM Bssrep_Report_Sample
+              WHERE Report_Id = :Report_Id
+                AND Bssrep_Report_Sample.Method_New_Id IN
+                    (SELECT Id
+                       FROM Bssrep_Report_Method_New
+                      WHERE Report_Id = :Report_Id
+                        AND Method_Id = :Method_Id)
+              ORDER BY Bssrep_Report_Sample.Composite_No,
+                       Bssrep_Report_Sample.Material_No) t
+    ON s.Composite_No = t.Composite_No
+   AND s.Material_No = t.Material_No</CommandText>
+        <QueryParameters>
+          <QueryParameter Name=":Report_Id">
+            <Value>=Parameters!REPORT_ID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name=":Sample_Per_Row">
+            <Value>=Parameters!SAMPLE_PER_ROW.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name=":Method_Id">
+            <Value>=Parameters!METHOD_ID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+    <DataSet Name="RESULT_XYZ">
+      <Fields>
+        <Field Name="COMPOSITE_NO">
+          <DataField>COMPOSITE_NO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SAMPLE_ID">
+          <DataField>SAMPLE_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="MATERIAL_NO">
+          <DataField>MATERIAL_NO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PASS_FAIL_DISPLAY">
+          <DataField>PASS_FAIL_DISPLAY</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PASS_FAIL_INDICATOR">
+          <DataField>PASS_FAIL_INDICATOR</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PAGE_NO">
+          <DataField>PAGE_NO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SAMPLE_REMARK">
+          <DataField>SAMPLE_REMARK</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TEST_PARAMETER_ID">
+          <DataField>TEST_PARAMETER_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="PARAMETER_NAME">
+          <DataField>PARAMETER_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PARAMETER_NAME_FOR_TEST_REPORT">
+          <DataField>PARAMETER_NAME_FOR_TEST_REPORT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PARAMETER_SHORT_NAME">
+          <DataField>PARAMETER_SHORT_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RESULT">
+          <DataField>RESULT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="LIMIT_DISPLAY">
+          <DataField>LIMIT_DISPLAY</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PRINT_IN_REPORT">
+          <DataField>PRINT_IN_REPORT</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="LIMIT_VIOLATION">
+          <DataField>LIMIT_VIOLATION</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_ID">
+          <DataField>METHOD_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="CAS_NO">
+          <DataField>CAS_NO</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RESULT_ID">
+          <DataField>RESULT_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="METHOD_VERSION">
+          <DataField>METHOD_VERSION</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="SNO">
+          <DataField>SNO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="UNIT_NAME">
+          <DataField>UNIT_NAME</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="MDL">
+          <DataField>MDL</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="TESTING_PERIOD">
+          <DataField>TESTING_PERIOD</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="METHOD">
+          <DataField>METHOD</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="WEIGHT">
+          <DataField>WEIGHT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="RESULT_FORMAT">
+          <DataField>RESULT_FORMAT</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="REMARK_PICTURE_PATH">
+          <DataField>REMARK_PICTURE_PATH</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="SAMPLE_SNO">
+          <DataField>SAMPLE_SNO</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="REMARK">
+          <DataField>REMARK</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="PRODUCT_TYPE_ID">
+          <DataField>PRODUCT_TYPE_ID</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="MIGRATION_CATERGORY">
+          <DataField>MIGRATION_CATERGORY</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+        <Field Name="X1">
+          <DataField>X1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="X2">
+          <DataField>X2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="X3">
+          <DataField>X3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Y1">
+          <DataField>Y1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Y2">
+          <DataField>Y2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Y3">
+          <DataField>Y3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Z1">
+          <DataField>Z1</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Z2">
+          <DataField>Z2</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="Z3">
+          <DataField>Z3</DataField>
+          <rd:TypeName>System.String</rd:TypeName>
+        </Field>
+        <Field Name="ROWNUMBER">
+          <DataField>ROWNUMBER</DataField>
+          <rd:TypeName>System.Decimal</rd:TypeName>
+        </Field>
+      </Fields>
+      <Query>
+        <DataSourceName>TUEV_CN</DataSourceName>
+        <CommandText>SELECT s.*, t.Rownumber
+  FROM (SELECT Sample.Composite_No,
+               Sample.Id                             Sample_Id,
+               Sample.Material_No,
+               Sample.Pass_Fail_Display,
+               Sample.Pass_Fail_Indicator,
+               Sample.Page_No,
+               Sample.remark             Sample_remark,  
+               Sample_Result.Test_Parameter_Id,
+               Param.Name                            Parameter_Name,
+               Param.Name_For_Test_Report            Parameter_Name_For_Test_Report,
+               Param.Short_Name                      Parameter_Short_Name,
+               Sample_Result.Result,
+               Sample_Result.Limit_Display,
+               Sample_Result.Print_In_Report,
+               Sample_Result.Limit_Violation,
+               Sample_Result.METHOD_ID,
+               Param.Cas_No,
+               Sample_Result.Id                      Result_Id,
+               Sample_Result.Method_Version,
+               Sample_Result.Sno,
+               Sample_Result.Unit                    Unit_Name,
+               Sample_Result.Method_Detection_Limit  Mdl,
+
+        ( to_char(Bscoresample.REGISTRATION_DATE, 'YYYY-MM-DD')||' - '||to_char(Bscoresample.TEST_COMPLETION_DATE, 'YYYY-MM-DD'))  Testing_Period,  
+   
+               Bscoresample.Classification_Statement Method,
+               Bscoresample.Weight_Under_100         Weight,
+               Sample_Result.Result_Format,
+               Sample_Result.Remark_Picture_Path,
+    Sample.SNO Sample_SNO,
+    Sample_Result.Remark,
+    bscust_component.product_type_id,
+    BSTM_REFERENCE_MATRIX.MIGRATION_CATERGORY,
+    Sample_Result.x1,
+    Sample_Result.x2,
+    Sample_Result.x3,
+    Sample_Result.y1,
+    Sample_Result.y2,
+    Sample_Result.y3,
+    Sample_Result.z1,
+    Sample_Result.z2,
+    Sample_Result.z3
+          FROM (SELECT *
+                  FROM Bssrep_Report_Sample
+                 WHERE REPORT_ID = :REPORT_ID) SAMPLE
+          LEFT JOIN (SELECT t.*, y.Method_Detection_Limit
+                      FROM Bssrep_Report_Smpl_Result t
+                      LEFT JOIN Bscore_Result y
+                        ON y.Id = t.Result_Id
+                     WHERE t.REPORT_ID = :REPORT_ID) Sample_Result
+            ON Sample.Id = Sample_Result.Report_Sample_Id
+          LEFT JOIN (SELECT *
+                      FROM Bstm_Test_Parameter
+                     WHERE Id IN (SELECT DISTINCT Test_Parameter_Id
+                                    FROM Bssrep_Report_Smpl_Result
+                                   WHERE REPORT_ID = :REPORT_ID)) Param
+            ON Param.Id = Sample_Result.Test_Parameter_Id
+          LEFT JOIN (SELECT *
+                      FROM Bsunit_Unit
+                     WHERE Id IN (SELECT DISTINCT Unit_Id
+                                    FROM Bssrep_Report_Smpl_Result
+                                   WHERE REPORT_ID = :REPORT_ID)) Unit
+            ON Param.Unit_Id = Unit.Id
+        
+          LEFT JOIN (SELECT *
+                      FROM Bscore_Sample s
+                     WHERE s.Id IN (SELECT Sample_Id
+                                      FROM Bssrep_Report_Sample
+                                     WHERE REPORT_ID = :REPORT_ID)) Bscoresample
+            ON Bscoresample.Id = Sample.Sample_Id
+            
+            left join (select * from bscore_sample_components where sample_id in (SELECT Sample_Id
+                                      FROM Bssrep_Report_Sample
+                                     WHERE REPORT_ID = :REPORT_ID)) BscoreSmplComp
+            on sample.sample_id = BscoreSmplComp.sample_id 
+            
+            left join bscust_component on bscoresmplcomp.COMPONENT_ID = bscust_component.id
+
+      left join BSTM_REFERENCE_MATRIX on bscust_component.reference_matrix_id = BSTM_REFERENCE_MATRIX.id
+           
+            ) s
+  LEFT JOIN (SELECT DISTINCT Ceil(Rownum / :SAMPLE_PER_ROW) AS Rownumber,
+                             Bssrep_Report_Sample.Composite_No,
+                             Bssrep_Report_Sample.Material_No
+               FROM Bssrep_Report_Sample
+              WHERE REPORT_ID = :REPORT_ID
+                AND Bssrep_Report_Sample.Method_New_Id IN
+                    (SELECT Id
+                       FROM Bssrep_Report_Method_New
+                      WHERE REPORT_ID = :REPORT_ID
+                        AND METHOD_ID = :METHOD_ID)
+              ORDER BY Bssrep_Report_Sample.Composite_No,
+                       Bssrep_Report_Sample.Material_No) t
+    ON s.Composite_No = t.Composite_No
+   AND s.Material_No = t.Material_No</CommandText>
+        <QueryParameters>
+          <QueryParameter Name=":REPORT_ID">
+            <Value>=Parameters!REPORT_ID.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name=":SAMPLE_PER_ROW">
+            <Value>=Parameters!SAMPLE_PER_ROW.Value</Value>
+          </QueryParameter>
+          <QueryParameter Name=":METHOD_ID">
+            <Value>=Parameters!METHOD_ID.Value</Value>
+          </QueryParameter>
+        </QueryParameters>
+        <rd:UseGenericDesigner>true</rd:UseGenericDesigner>
+      </Query>
+    </DataSet>
+  </DataSets>
+  <Body>
+    <ReportItems>
+      <Tablix Name="Tablix5">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>0.96052in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>5.57453in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox9">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=iif(Parameters!ACCREDITATION_SCOPE_FLAG.Value = 1, (iif(isnothing(Fields!TEST_NUMBER.Value), "", Fields!TEST_NUMBER.Value &amp; ". ") &amp; Fields!METHOD_NAME.Value), (iif(isnothing(Fields!TEST_NUMBER.Value), "#", "#" &amp; Fields!TEST_NUMBER.Value &amp; ". ") &amp; Fields!METHOD_NAME.Value) )</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox9</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>White</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <ColSpan>2</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox14">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Test Method:</Value>
+                              <Style>
+                                <FontWeight>Normal</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox14</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>White</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="METHOD_NAME_REPORT">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!METHOD_NAME_REPORT.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>METHOD_NAME_REPORT</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>White</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>BSSREP_REPORT_METHOD_NEW</DataSetName>
+        <Filters>
+          <Filter>
+            <FilterExpression>=CInt(Fields!METHOD_ID.Value)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>=CInt(Parameters!METHOD_ID.Value)</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+        <Left>0.03977cm</Left>
+        <Height>0.5in</Height>
+        <Width>6.53505in</Width>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Tablix Name="Tablix1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>5.57657in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="ABBREVIATIONS_FOR_TEST_REPORT">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>= code.AbbrFixSpelling( Fields!ABBREVIATIONS_FOR_TEST_REPORT.Value )</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>ABBREVIATIONS_FOR_TEST_REPORT</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>White</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="RowGroup">
+                <GroupExpressions>
+                  <GroupExpression />
+                </GroupExpressions>
+              </Group>
+              <TablixHeader>
+                <Size>0.97412in</Size>
+                <CellContents>
+                  <Textbox Name="Textbox2">
+                    <CanGrow>true</CanGrow>
+                    <KeepTogether>true</KeepTogether>
+                    <Paragraphs>
+                      <Paragraph>
+                        <TextRuns>
+                          <TextRun>
+                            <Value>Abbreviation:</Value>
+                            <Style>
+                              <FontWeight>Bold</FontWeight>
+                            </Style>
+                          </TextRun>
+                        </TextRuns>
+                        <Style />
+                      </Paragraph>
+                    </Paragraphs>
+                    <rd:DefaultName>Textbox2</rd:DefaultName>
+                    <Style>
+                      <Border>
+                        <Color>White</Color>
+                        <Style>None</Style>
+                      </Border>
+                      <PaddingLeft>2pt</PaddingLeft>
+                      <PaddingRight>2pt</PaddingRight>
+                    </Style>
+                  </Textbox>
+                </CellContents>
+              </TablixHeader>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>BSSREP_REPORT_METHOD_NEW</DataSetName>
+        <Filters>
+          <Filter>
+            <FilterExpression>=CInt(Fields!METHOD_ID.Value)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>=CInt(Parameters!METHOD_ID.Value)</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+        <Top>2.33945in</Top>
+        <Left>0.05in</Left>
+        <Height>0.25in</Height>
+        <Width>6.55069in</Width>
+        <ZIndex>1</ZIndex>
+        <Visibility>
+          <Hidden>=isnothing(Fields!ABBREVIATIONS_FOR_TEST_REPORT.Value)</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Textbox Name="Textbox1">
+        <CanGrow>true</CanGrow>
+        <KeepTogether>true</KeepTogether>
+        <Paragraphs>
+          <Paragraph>
+            <TextRuns>
+              <TextRun>
+                <Value>Test Result:</Value>
+                <Style>
+                  <FontWeight>Bold</FontWeight>
+                </Style>
+              </TextRun>
+            </TextRuns>
+            <Style />
+          </Paragraph>
+        </Paragraphs>
+        <rd:DefaultName>Textbox1</rd:DefaultName>
+        <Top>0.54167in</Top>
+        <Left>0.01063in</Left>
+        <Height>0.19792in</Height>
+        <Width>1.11603in</Width>
+        <ZIndex>2</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+          <PaddingLeft>2pt</PaddingLeft>
+          <PaddingRight>2pt</PaddingRight>
+          <PaddingTop>2pt</PaddingTop>
+          <PaddingBottom>2pt</PaddingBottom>
+        </Style>
+      </Textbox>
+      <Tablix Name="REMARK_TABLE_1">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>0.51736in</Width>
+            </TablixColumn>
+            <TablixColumn>
+              <Width>6.00613in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>0.21875in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="Textbox12">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>Remark:</Value>
+                              <Style>
+                                <FontWeight>Bold</FontWeight>
+                              </Style>
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>Textbox6</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>White</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                    <ColSpan>2</ColSpan>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell />
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.26042in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="SYMBOL3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!SYMBOL.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>SYMBOL</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>White</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="REMARK_CONTENT3">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!REMARK_CONTENT.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>REMARK_CONTENT</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>White</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.25in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="SYMBOL1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!SYMBOL.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>SYMBOL1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>White</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="REMARK_CONTENT1">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Fields!REMARK_CONTENT.Value</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>REMARK_CONTENT1</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Color>White</Color>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <KeepWithGroup>After</KeepWithGroup>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="UPPER_REMARK">
+                <Filters>
+                  <Filter>
+                    <FilterExpression>=Cint(Fields!REMARK_POSITION.Value)</FilterExpression>
+                    <Operator>Equal</Operator>
+                    <FilterValues>
+                      <FilterValue>=cint(1)</FilterValue>
+                    </FilterValues>
+                  </Filter>
+                </Filters>
+              </Group>
+            </TablixMember>
+            <TablixMember>
+              <Group Name="LOWER_REMARK">
+                <Filters>
+                  <Filter>
+                    <FilterExpression>=Cint(Fields!REMARK_POSITION.Value)</FilterExpression>
+                    <Operator>Equal</Operator>
+                    <FilterValues>
+                      <FilterValue>=cint(2)</FilterValue>
+                    </FilterValues>
+                  </Filter>
+                </Filters>
+              </Group>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <KeepTogether>true</KeepTogether>
+        <DataSetName>BSSREP_REPORT_METHOD_RM</DataSetName>
+        <Filters>
+          <Filter>
+            <FilterExpression>=CInt(Fields!METHOD_ID.Value)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>=CInt(Parameters!METHOD_ID.Value)</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=cint(Fields!REMARK_POSITION.Value)</FilterExpression>
+            <Operator>Between</Operator>
+            <FilterValues>
+              <FilterValue>=cint(1)</FilterValue>
+              <FilterValue>=cint(2)</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+        <SortExpressions>
+          <SortExpression>
+            <Value>=Fields!SYMBOL.Value</Value>
+          </SortExpression>
+        </SortExpressions>
+        <Top>2.61723in</Top>
+        <Left>0.02722in</Left>
+        <Height>0.72917in</Height>
+        <Width>6.52349in</Width>
+        <ZIndex>3</ZIndex>
+        <Visibility>
+          <Hidden>=  Count(Fields!ID.Value) = 0 or Parameters!OPTIONAL_REMARK_TABLE.Value(0) = "NO_REMARK_TABLE"</Hidden>
+        </Visibility>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+      <Tablix Name="RESULT_TABLE_DEFAULT2">
+        <TablixBody>
+          <TablixColumns>
+            <TablixColumn>
+              <Width>4.76144in</Width>
+            </TablixColumn>
+          </TablixColumns>
+          <TablixRows>
+            <TablixRow>
+              <Height>1.29951in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Rectangle Name="Rectangle3">
+                      <ReportItems>
+                        <Tablix Name="Tablix2">
+                          <TablixBody>
+                            <TablixColumns>
+                              <TablixColumn>
+                                <Width>1.58257in</Width>
+                              </TablixColumn>
+                              <TablixColumn>
+                                <Width>0.6759in</Width>
+                              </TablixColumn>
+                              <TablixColumn>
+                                <Width>0.51143in</Width>
+                              </TablixColumn>
+                              <TablixColumn>
+                                <Width>0.40624in</Width>
+                              </TablixColumn>
+                              <TablixColumn>
+                                <Width>0.9075in</Width>
+                              </TablixColumn>
+                              <TablixColumn>
+                                <Width>0.6778in</Width>
+                              </TablixColumn>
+                            </TablixColumns>
+                            <TablixRows>
+                              <TablixRow>
+                                <Height>0.19in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="TEST_PARAMETER_ID9">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!PARAMETER_NAME.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Left</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>TEST_PARAMETER_ID</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <BottomBorder>
+                                            <Style>Solid</Style>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <LeftBorder>
+                                            <Style>Solid</Style>
+                                          </LeftBorder>
+                                          <RightBorder>
+                                            <Style>Solid</Style>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="CAS_NO8">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!CAS_NO.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>CAS_NO</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <TopBorder>
+                                            <Style>None</Style>
+                                          </TopBorder>
+                                          <BottomBorder>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <LeftBorder>
+                                            <Style>None</Style>
+                                          </LeftBorder>
+                                          <RightBorder>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="UNIT_NAME8">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!UNIT_NAME.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>UNIT_NAME</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <TopBorder>
+                                            <Style>None</Style>
+                                          </TopBorder>
+                                          <BottomBorder>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <LeftBorder>
+                                            <Style>None</Style>
+                                          </LeftBorder>
+                                          <RightBorder>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="MDL8">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!MDL.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>MDL</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <TopBorder>
+                                            <Style>None</Style>
+                                          </TopBorder>
+                                          <BottomBorder>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <LeftBorder>
+                                            <Style>None</Style>
+                                          </LeftBorder>
+                                          <RightBorder>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="LIMIT_DISPLAY3">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>= IIf(Fields!TEST_PARAMETER_ID.Value=325,"&lt; 10 (Sum)","")</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>LIMIT_DISPLAY</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                            <Width>0.5pt</Width>
+                                          </Border>
+                                          <TopBorder>
+                                            <Color>Black</Color>
+                                            <Style>None</Style>
+                                          </TopBorder>
+                                          <BottomBorder>
+                                            <Color>Black</Color>
+                                            <Style>None</Style>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <LeftBorder>
+                                            <Color>Black</Color>
+                                            <Style>Solid</Style>
+                                          </LeftBorder>
+                                          <RightBorder>
+                                            <Color>Black</Color>
+                                            <Style>Solid</Style>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="RESULT6">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!RESULT.Value</Value>
+                                                <Style>
+                                                  <FontWeight>=iif(Fields!RESULT_FORMAT.Value = "1" or  Fields!RESULT_FORMAT.Value = "2" or  Fields!RESULT_FORMAT.Value = "3", "Bold","Default")</FontWeight>
+                                                  <TextDecoration>=iif(Fields!RESULT_FORMAT.Value = "3", "Underline","Default")</TextDecoration>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>RESULT</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <TopBorder>
+                                            <Style>None</Style>
+                                          </TopBorder>
+                                          <BottomBorder>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <LeftBorder>
+                                            <Style>None</Style>
+                                          </LeftBorder>
+                                          <RightBorder>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <BackgroundColor>=iif(Fields!RESULT_FORMAT.Value = "+" or Fields!RESULT_FORMAT.Value = "2" , "LightGrey","Default")</BackgroundColor>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                              <TablixRow>
+                                <Height>0.25in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="PARAMETER_NAME">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!PARAMETER_NAME.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Left</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>PARAMETER_NAME</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>None</Style>
+                                          </Border>
+                                          <BottomBorder>
+                                            <Style>Solid</Style>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <LeftBorder>
+                                            <Style>Solid</Style>
+                                          </LeftBorder>
+                                          <RightBorder>
+                                            <Style>Solid</Style>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="CAS_NO">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=  IIf(Fields!TEST_PARAMETER_ID.Value=14774,"-",Fields!CAS_NO.Value )</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>CAS_NO</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <TopBorder>
+                                            <Style>None</Style>
+                                          </TopBorder>
+                                          <BottomBorder>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <LeftBorder>
+                                            <Style>None</Style>
+                                          </LeftBorder>
+                                          <RightBorder>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="UNIT_NAME">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!UNIT_NAME.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>UNIT_NAME</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <TopBorder>
+                                            <Style>None</Style>
+                                          </TopBorder>
+                                          <BottomBorder>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <LeftBorder>
+                                            <Style>None</Style>
+                                          </LeftBorder>
+                                          <RightBorder>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="MDL">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!MDL.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>MDL</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <TopBorder>
+                                            <Style>None</Style>
+                                          </TopBorder>
+                                          <BottomBorder>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <LeftBorder>
+                                            <Style>None</Style>
+                                          </LeftBorder>
+                                          <RightBorder>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="LIMIT_DISPLAY">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!LIMIT_DISPLAY.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>LIMIT_DISPLAY</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                            <Width>0.5pt</Width>
+                                          </Border>
+                                          <TopBorder>
+                                            <Style>Solid</Style>
+                                          </TopBorder>
+                                          <BottomBorder>
+                                            <Style>Solid</Style>
+                                          </BottomBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="RESULT">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!RESULT.Value</Value>
+                                                <Style>
+                                                  <FontWeight>=iif(Fields!RESULT_FORMAT.Value = "1" or  Fields!RESULT_FORMAT.Value = "2" or  Fields!RESULT_FORMAT.Value = "3", "Bold","Default")</FontWeight>
+                                                  <TextDecoration>=iif(Fields!RESULT_FORMAT.Value = "3", "Underline","Default")</TextDecoration>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>RESULT</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <TopBorder>
+                                            <Style>None</Style>
+                                          </TopBorder>
+                                          <BottomBorder>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <LeftBorder>
+                                            <Style>None</Style>
+                                          </LeftBorder>
+                                          <RightBorder>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <BackgroundColor>=iif(Fields!RESULT_FORMAT.Value = "+" or Fields!RESULT_FORMAT.Value = "2" , "LightGrey","Default")</BackgroundColor>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                              <TablixRow>
+                                <Height>0.19in</Height>
+                                <TablixCells>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="TEST_PARAMETER_ID12">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!PARAMETER_NAME.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Left</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>TEST_PARAMETER_ID</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <BottomBorder>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <RightBorder>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="CAS_NO1">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>-</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>CAS_NO1</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <BottomBorder>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <RightBorder>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="UNIT_NAME1">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!UNIT_NAME.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>UNIT_NAME1</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <BottomBorder>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <RightBorder>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="MDL1">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!MDL.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>MDL1</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <BottomBorder>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <RightBorder>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="LIMIT_DISPLAY5">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!LIMIT_DISPLAY.Value</Value>
+                                                <Style />
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>LIMIT_DISPLAY</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <TopBorder>
+                                            <Color>Black</Color>
+                                            <Style>Solid</Style>
+                                          </TopBorder>
+                                          <BottomBorder>
+                                            <Color>Black</Color>
+                                            <Style>Solid</Style>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <LeftBorder>
+                                            <Color>Black</Color>
+                                            <Style>Solid</Style>
+                                          </LeftBorder>
+                                          <RightBorder>
+                                            <Color>Black</Color>
+                                            <Style>Solid</Style>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                          <PaddingTop>2pt</PaddingTop>
+                                          <PaddingBottom>2pt</PaddingBottom>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                  <TablixCell>
+                                    <CellContents>
+                                      <Textbox Name="RESULT9">
+                                        <CanGrow>true</CanGrow>
+                                        <KeepTogether>true</KeepTogether>
+                                        <Paragraphs>
+                                          <Paragraph>
+                                            <TextRuns>
+                                              <TextRun>
+                                                <Value>=Fields!RESULT.Value</Value>
+                                                <Style>
+                                                  <FontWeight>=iif(Fields!RESULT_FORMAT.Value = "1" or  Fields!RESULT_FORMAT.Value = "2" or  Fields!RESULT_FORMAT.Value = "3", "Bold","Default")</FontWeight>
+                                                  <TextDecoration>=iif(Fields!RESULT_FORMAT.Value = "3", "Underline","Default")</TextDecoration>
+                                                </Style>
+                                              </TextRun>
+                                            </TextRuns>
+                                            <Style>
+                                              <TextAlign>Center</TextAlign>
+                                            </Style>
+                                          </Paragraph>
+                                        </Paragraphs>
+                                        <rd:DefaultName>RESULT</rd:DefaultName>
+                                        <Style>
+                                          <Border>
+                                            <Style>Solid</Style>
+                                          </Border>
+                                          <BottomBorder>
+                                            <Width>0.5pt</Width>
+                                          </BottomBorder>
+                                          <RightBorder>
+                                            <Width>0.5pt</Width>
+                                          </RightBorder>
+                                          <BackgroundColor>=iif(Fields!RESULT_FORMAT.Value = "+" or Fields!RESULT_FORMAT.Value = "2" , "LightGrey","Default")</BackgroundColor>
+                                          <VerticalAlign>Middle</VerticalAlign>
+                                          <PaddingLeft>2pt</PaddingLeft>
+                                          <PaddingRight>2pt</PaddingRight>
+                                        </Style>
+                                      </Textbox>
+                                    </CellContents>
+                                  </TablixCell>
+                                </TablixCells>
+                              </TablixRow>
+                            </TablixRows>
+                          </TablixBody>
+                          <TablixColumnHierarchy>
+                            <TablixMembers>
+                              <TablixMember>
+                                <TablixHeader>
+                                  <Size>0.1925in</Size>
+                                  <CellContents>
+                                    <Textbox Name="Textbox17">
+                                      <CanGrow>true</CanGrow>
+                                      <KeepTogether>true</KeepTogether>
+                                      <Paragraphs>
+                                        <Paragraph>
+                                          <TextRuns>
+                                            <TextRun>
+                                              <Value>=iif(Parameters!REQURIEMENT.Value = "No Requirement","Test No.","")</Value>
+                                              <Style />
+                                            </TextRun>
+                                          </TextRuns>
+                                          <Style>
+                                            <TextAlign>Right</TextAlign>
+                                          </Style>
+                                        </Paragraph>
+                                      </Paragraphs>
+                                      <rd:DefaultName>Textbox10</rd:DefaultName>
+                                      <Style>
+                                        <Border>
+                                          <Style>Solid</Style>
+                                        </Border>
+                                        <BottomBorder>
+                                          <Width>0.5pt</Width>
+                                        </BottomBorder>
+                                        <RightBorder>
+                                          <Style>None</Style>
+                                        </RightBorder>
+                                        <PaddingLeft>2pt</PaddingLeft>
+                                        <PaddingRight>2pt</PaddingRight>
+                                      </Style>
+                                    </Textbox>
+                                  </CellContents>
+                                </TablixHeader>
+                                <TablixMembers>
+                                  <TablixMember>
+                                    <TablixHeader>
+                                      <Size>0.20833in</Size>
+                                      <CellContents>
+                                        <Textbox Name="Textbox18">
+                                          <CanGrow>true</CanGrow>
+                                          <KeepTogether>true</KeepTogether>
+                                          <Paragraphs>
+                                            <Paragraph>
+                                              <TextRuns>
+                                                <TextRun>
+                                                  <Value>=iif(Parameters!REQURIEMENT.Value = "No Requirement","Material No.","")</Value>
+                                                  <Style />
+                                                </TextRun>
+                                              </TextRuns>
+                                              <Style>
+                                                <TextAlign>Right</TextAlign>
+                                              </Style>
+                                            </Paragraph>
+                                          </Paragraphs>
+                                          <rd:DefaultName>Textbox11</rd:DefaultName>
+                                          <Style>
+                                            <Border>
+                                              <Style>Solid</Style>
+                                            </Border>
+                                            <TopBorder>
+                                              <Style>None</Style>
+                                            </TopBorder>
+                                            <BottomBorder>
+                                              <Width>0.5pt</Width>
+                                            </BottomBorder>
+                                            <RightBorder>
+                                              <Style>None</Style>
+                                            </RightBorder>
+                                            <PaddingLeft>2pt</PaddingLeft>
+                                            <PaddingRight>2pt</PaddingRight>
+                                          </Style>
+                                        </Textbox>
+                                      </CellContents>
+                                    </TablixHeader>
+                                    <TablixMembers>
+                                      <TablixMember>
+                                        <TablixHeader>
+                                          <Size>0.19in</Size>
+                                          <CellContents>
+                                            <Textbox Name="Textbox94">
+                                              <CanGrow>true</CanGrow>
+                                              <KeepTogether>true</KeepTogether>
+                                              <Paragraphs>
+                                                <Paragraph>
+                                                  <TextRuns>
+                                                    <TextRun>
+                                                      <Value>Test Parameter</Value>
+                                                      <Style />
+                                                    </TextRun>
+                                                  </TextRuns>
+                                                  <Style>
+                                                    <TextAlign>Left</TextAlign>
+                                                  </Style>
+                                                </Paragraph>
+                                              </Paragraphs>
+                                              <rd:DefaultName>Textbox7</rd:DefaultName>
+                                              <Style>
+                                                <Border>
+                                                  <Style>Solid</Style>
+                                                </Border>
+                                                <TopBorder>
+                                                  <Style>None</Style>
+                                                </TopBorder>
+                                                <BottomBorder>
+                                                  <Width>0.5pt</Width>
+                                                </BottomBorder>
+                                                <RightBorder>
+                                                  <Width>0.5pt</Width>
+                                                </RightBorder>
+                                                <VerticalAlign>Middle</VerticalAlign>
+                                                <PaddingLeft>2pt</PaddingLeft>
+                                                <PaddingRight>2pt</PaddingRight>
+                                              </Style>
+                                            </Textbox>
+                                          </CellContents>
+                                        </TablixHeader>
+                                      </TablixMember>
+                                      <TablixMember>
+                                        <TablixHeader>
+                                          <Size>0.19in</Size>
+                                          <CellContents>
+                                            <Textbox Name="Textbox95">
+                                              <CanGrow>true</CanGrow>
+                                              <KeepTogether>true</KeepTogether>
+                                              <Paragraphs>
+                                                <Paragraph>
+                                                  <TextRuns>
+                                                    <TextRun>
+                                                      <Value>CAS NO</Value>
+                                                      <Style />
+                                                    </TextRun>
+                                                  </TextRuns>
+                                                  <Style>
+                                                    <TextAlign>Center</TextAlign>
+                                                  </Style>
+                                                </Paragraph>
+                                              </Paragraphs>
+                                              <rd:DefaultName>Textbox1</rd:DefaultName>
+                                              <Style>
+                                                <Border>
+                                                  <Style>Solid</Style>
+                                                </Border>
+                                                <TopBorder>
+                                                  <Style>None</Style>
+                                                </TopBorder>
+                                                <BottomBorder>
+                                                  <Width>0.5pt</Width>
+                                                </BottomBorder>
+                                                <LeftBorder>
+                                                  <Style>None</Style>
+                                                </LeftBorder>
+                                                <RightBorder>
+                                                  <Width>0.5pt</Width>
+                                                </RightBorder>
+                                                <VerticalAlign>Middle</VerticalAlign>
+                                                <PaddingLeft>2pt</PaddingLeft>
+                                                <PaddingRight>2pt</PaddingRight>
+                                              </Style>
+                                            </Textbox>
+                                          </CellContents>
+                                        </TablixHeader>
+                                      </TablixMember>
+                                      <TablixMember>
+                                        <TablixHeader>
+                                          <Size>0.19in</Size>
+                                          <CellContents>
+                                            <Textbox Name="Textbox96">
+                                              <CanGrow>true</CanGrow>
+                                              <KeepTogether>true</KeepTogether>
+                                              <Paragraphs>
+                                                <Paragraph>
+                                                  <TextRuns>
+                                                    <TextRun>
+                                                      <Value>Unit</Value>
+                                                      <Style />
+                                                    </TextRun>
+                                                  </TextRuns>
+                                                  <Style>
+                                                    <TextAlign>Center</TextAlign>
+                                                  </Style>
+                                                </Paragraph>
+                                              </Paragraphs>
+                                              <rd:DefaultName>Textbox34</rd:DefaultName>
+                                              <Style>
+                                                <Border>
+                                                  <Style>Solid</Style>
+                                                </Border>
+                                                <TopBorder>
+                                                  <Style>None</Style>
+                                                </TopBorder>
+                                                <BottomBorder>
+                                                  <Width>0.5pt</Width>
+                                                </BottomBorder>
+                                                <LeftBorder>
+                                                  <Style>None</Style>
+                                                </LeftBorder>
+                                                <RightBorder>
+                                                  <Width>0.5pt</Width>
+                                                </RightBorder>
+                                                <VerticalAlign>Middle</VerticalAlign>
+                                                <PaddingLeft>2pt</PaddingLeft>
+                                                <PaddingRight>2pt</PaddingRight>
+                                              </Style>
+                                            </Textbox>
+                                          </CellContents>
+                                        </TablixHeader>
+                                      </TablixMember>
+                                      <TablixMember>
+                                        <TablixHeader>
+                                          <Size>0.19in</Size>
+                                          <CellContents>
+                                            <Textbox Name="Textbox97">
+                                              <CanGrow>true</CanGrow>
+                                              <KeepTogether>true</KeepTogether>
+                                              <Paragraphs>
+                                                <Paragraph>
+                                                  <TextRuns>
+                                                    <TextRun>
+                                                      <Value>RL</Value>
+                                                      <Style />
+                                                    </TextRun>
+                                                  </TextRuns>
+                                                  <Style>
+                                                    <TextAlign>Center</TextAlign>
+                                                  </Style>
+                                                </Paragraph>
+                                              </Paragraphs>
+                                              <rd:DefaultName>Textbox27</rd:DefaultName>
+                                              <Style>
+                                                <Border>
+                                                  <Style>Solid</Style>
+                                                </Border>
+                                                <TopBorder>
+                                                  <Style>None</Style>
+                                                </TopBorder>
+                                                <BottomBorder>
+                                                  <Width>0.5pt</Width>
+                                                </BottomBorder>
+                                                <LeftBorder>
+                                                  <Style>None</Style>
+                                                </LeftBorder>
+                                                <RightBorder>
+                                                  <Width>0.5pt</Width>
+                                                </RightBorder>
+                                                <VerticalAlign>Middle</VerticalAlign>
+                                                <PaddingLeft>2pt</PaddingLeft>
+                                                <PaddingRight>2pt</PaddingRight>
+                                              </Style>
+                                            </Textbox>
+                                          </CellContents>
+                                        </TablixHeader>
+                                      </TablixMember>
+                                    </TablixMembers>
+                                  </TablixMember>
+                                </TablixMembers>
+                              </TablixMember>
+                              <TablixMember>
+                                <TablixHeader>
+                                  <Size>0.1925in</Size>
+                                  <CellContents>
+                                    <Textbox Name="Textbox10">
+                                      <CanGrow>true</CanGrow>
+                                      <KeepTogether>true</KeepTogether>
+                                      <Paragraphs>
+                                        <Paragraph>
+                                          <TextRuns>
+                                            <TextRun>
+                                              <Value>Test No.</Value>
+                                              <Style />
+                                            </TextRun>
+                                          </TextRuns>
+                                          <Style>
+                                            <TextAlign>Right</TextAlign>
+                                          </Style>
+                                        </Paragraph>
+                                      </Paragraphs>
+                                      <rd:DefaultName>Textbox4</rd:DefaultName>
+                                      <Style>
+                                        <Border>
+                                          <Style>Solid</Style>
+                                        </Border>
+                                        <BottomBorder>
+                                          <Width>0.5pt</Width>
+                                        </BottomBorder>
+                                        <LeftBorder>
+                                          <Style>None</Style>
+                                        </LeftBorder>
+                                        <RightBorder>
+                                          <Style>None</Style>
+                                        </RightBorder>
+                                        <PaddingLeft>2pt</PaddingLeft>
+                                        <PaddingRight>2pt</PaddingRight>
+                                      </Style>
+                                    </Textbox>
+                                  </CellContents>
+                                </TablixHeader>
+                                <TablixMembers>
+                                  <TablixMember>
+                                    <TablixHeader>
+                                      <Size>0.20833in</Size>
+                                      <CellContents>
+                                        <Textbox Name="Textbox13">
+                                          <CanGrow>true</CanGrow>
+                                          <KeepTogether>true</KeepTogether>
+                                          <Paragraphs>
+                                            <Paragraph>
+                                              <TextRuns>
+                                                <TextRun>
+                                                  <Value>Material No.</Value>
+                                                  <Style />
+                                                </TextRun>
+                                              </TextRuns>
+                                              <Style>
+                                                <TextAlign>Right</TextAlign>
+                                              </Style>
+                                            </Paragraph>
+                                          </Paragraphs>
+                                          <rd:DefaultName>Textbox5</rd:DefaultName>
+                                          <Style>
+                                            <Border>
+                                              <Style>Solid</Style>
+                                            </Border>
+                                            <TopBorder>
+                                              <Style>None</Style>
+                                            </TopBorder>
+                                            <BottomBorder>
+                                              <Width>0.5pt</Width>
+                                            </BottomBorder>
+                                            <LeftBorder>
+                                              <Style>None</Style>
+                                            </LeftBorder>
+                                            <RightBorder>
+                                              <Style>None</Style>
+                                            </RightBorder>
+                                            <PaddingLeft>2pt</PaddingLeft>
+                                            <PaddingRight>2pt</PaddingRight>
+                                          </Style>
+                                        </Textbox>
+                                      </CellContents>
+                                    </TablixHeader>
+                                    <TablixMembers>
+                                      <TablixMember>
+                                        <TablixHeader>
+                                          <Size>0.19in</Size>
+                                          <CellContents>
+                                            <Textbox Name="Textbox11">
+                                              <CanGrow>true</CanGrow>
+                                              <KeepTogether>true</KeepTogether>
+                                              <Paragraphs>
+                                                <Paragraph>
+                                                  <TextRuns>
+                                                    <TextRun>
+                                                      <Value>=Parameters!REQURIEMENT.Value</Value>
+                                                      <Style />
+                                                    </TextRun>
+                                                  </TextRuns>
+                                                  <Style>
+                                                    <TextAlign>Center</TextAlign>
+                                                  </Style>
+                                                </Paragraph>
+                                              </Paragraphs>
+                                              <rd:DefaultName>Textbox9</rd:DefaultName>
+                                              <Style>
+                                                <Border>
+                                                  <Style>Solid</Style>
+                                                  <Width>0.5pt</Width>
+                                                </Border>
+                                                <TopBorder>
+                                                  <Color>Black</Color>
+                                                  <Style>Solid</Style>
+                                                </TopBorder>
+                                                <BottomBorder>
+                                                  <Color>Black</Color>
+                                                  <Style>Solid</Style>
+                                                  <Width>0.5pt</Width>
+                                                </BottomBorder>
+                                                <LeftBorder>
+                                                  <Color>Black</Color>
+                                                  <Style>Solid</Style>
+                                                </LeftBorder>
+                                                <RightBorder>
+                                                  <Color>Black</Color>
+                                                  <Style>Solid</Style>
+                                                  <Width>0.5pt</Width>
+                                                </RightBorder>
+                                                <VerticalAlign>Middle</VerticalAlign>
+                                                <PaddingLeft>2pt</PaddingLeft>
+                                                <PaddingRight>2pt</PaddingRight>
+                                                <PaddingTop>2pt</PaddingTop>
+                                                <PaddingBottom>2pt</PaddingBottom>
+                                              </Style>
+                                            </Textbox>
+                                          </CellContents>
+                                        </TablixHeader>
+                                      </TablixMember>
+                                    </TablixMembers>
+                                  </TablixMember>
+                                </TablixMembers>
+                              </TablixMember>
+                              <TablixMember>
+                                <TablixMembers>
+                                  <TablixMember>
+                                    <Group Name="SAMPLE_ID2">
+                                      <GroupExpressions>
+                                        <GroupExpression>=Fields!SAMPLE_ID.Value</GroupExpression>
+                                      </GroupExpressions>
+                                      <Filters>
+                                        <Filter>
+                                          <FilterExpression>=cint(Fields!METHOD_ID.Value)</FilterExpression>
+                                          <Operator>Equal</Operator>
+                                          <FilterValues>
+                                            <FilterValue>=cint(Parameters!METHOD_ID.Value)</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                      </Filters>
+                                    </Group>
+                                    <SortExpressions>
+                                      <SortExpression>
+                                        <Value>=Fields!SAMPLE_SNO.Value</Value>
+                                      </SortExpression>
+                                    </SortExpressions>
+                                    <TablixMembers>
+                                      <TablixMember>
+                                        <TablixMembers>
+                                          <TablixMember>
+                                            <TablixHeader>
+                                              <Size>0.1925in</Size>
+                                              <CellContents>
+                                                <Textbox Name="COMPOSITE_NO2">
+                                                  <CanGrow>true</CanGrow>
+                                                  <KeepTogether>true</KeepTogether>
+                                                  <Paragraphs>
+                                                    <Paragraph>
+                                                      <TextRuns>
+                                                        <TextRun>
+                                                          <Value>=Fields!COMPOSITE_NO.Value</Value>
+                                                          <Style />
+                                                        </TextRun>
+                                                      </TextRuns>
+                                                      <Style>
+                                                        <TextAlign>Center</TextAlign>
+                                                      </Style>
+                                                    </Paragraph>
+                                                  </Paragraphs>
+                                                  <rd:DefaultName>COMPOSITE_NO</rd:DefaultName>
+                                                  <Style>
+                                                    <Border>
+                                                      <Style>Solid</Style>
+                                                    </Border>
+                                                    <BottomBorder>
+                                                      <Width>0.5pt</Width>
+                                                    </BottomBorder>
+                                                    <LeftBorder>
+                                                      <Width>0.5pt</Width>
+                                                    </LeftBorder>
+                                                    <RightBorder>
+                                                      <Width>0.5pt</Width>
+                                                    </RightBorder>
+                                                    <PaddingLeft>2pt</PaddingLeft>
+                                                    <PaddingRight>2pt</PaddingRight>
+                                                  </Style>
+                                                </Textbox>
+                                              </CellContents>
+                                            </TablixHeader>
+                                            <TablixMembers>
+                                              <TablixMember>
+                                                <TablixHeader>
+                                                  <Size>0.20833in</Size>
+                                                  <CellContents>
+                                                    <Textbox Name="Textbox39">
+                                                      <CanGrow>true</CanGrow>
+                                                      <KeepTogether>true</KeepTogether>
+                                                      <Paragraphs>
+                                                        <Paragraph>
+                                                          <TextRuns>
+                                                            <TextRun>
+                                                              <Value>=Fields!MATERIAL_NO.Value</Value>
+                                                              <MarkupType>HTML</MarkupType>
+                                                              <Style>
+                                                                <FontWeight>=iif(Parameters!CLIENT_ID.Value=394, iif(Fields!RESULT_FORMAT.Value = "1" or  Fields!RESULT_FORMAT.Value = "2" or  Fields!RESULT_FORMAT.Value = "3", "Bold","Default"), "Default")</FontWeight>
+                                                                <TextDecoration>=iif(Parameters!CLIENT_ID.Value=394, iif(Fields!RESULT_FORMAT.Value = "3", "Underline","Default"), "Default")</TextDecoration>
+                                                              </Style>
+                                                            </TextRun>
+                                                          </TextRuns>
+                                                          <Style>
+                                                            <TextAlign>Center</TextAlign>
+                                                          </Style>
+                                                        </Paragraph>
+                                                      </Paragraphs>
+                                                      <rd:DefaultName>Textbox37</rd:DefaultName>
+                                                      <Style>
+                                                        <Border>
+                                                          <Style>Solid</Style>
+                                                        </Border>
+                                                        <TopBorder>
+                                                          <Style>None</Style>
+                                                        </TopBorder>
+                                                        <BottomBorder>
+                                                          <Width>0.5pt</Width>
+                                                        </BottomBorder>
+                                                        <LeftBorder>
+                                                          <Width>0.5pt</Width>
+                                                        </LeftBorder>
+                                                        <RightBorder>
+                                                          <Width>0.5pt</Width>
+                                                        </RightBorder>
+                                                        <PaddingLeft>2pt</PaddingLeft>
+                                                        <PaddingRight>2pt</PaddingRight>
+                                                      </Style>
+                                                    </Textbox>
+                                                  </CellContents>
+                                                </TablixHeader>
+                                                <TablixMembers>
+                                                  <TablixMember>
+                                                    <TablixHeader>
+                                                      <Size>0.19in</Size>
+                                                      <CellContents>
+                                                        <Textbox Name="MATERIAL_NO3">
+                                                          <CanGrow>true</CanGrow>
+                                                          <KeepTogether>true</KeepTogether>
+                                                          <Paragraphs>
+                                                            <Paragraph>
+                                                              <TextRuns>
+                                                                <TextRun>
+                                                                  <Value>Result</Value>
+                                                                  <Style />
+                                                                </TextRun>
+                                                              </TextRuns>
+                                                              <Style>
+                                                                <TextAlign>Center</TextAlign>
+                                                              </Style>
+                                                            </Paragraph>
+                                                          </Paragraphs>
+                                                          <rd:DefaultName>MATERIAL_NO1</rd:DefaultName>
+                                                          <Style>
+                                                            <Border>
+                                                              <Style>Solid</Style>
+                                                            </Border>
+                                                            <TopBorder>
+                                                              <Style>None</Style>
+                                                            </TopBorder>
+                                                            <BottomBorder>
+                                                              <Width>0.5pt</Width>
+                                                            </BottomBorder>
+                                                            <LeftBorder>
+                                                              <Style>None</Style>
+                                                            </LeftBorder>
+                                                            <RightBorder>
+                                                              <Width>0.5pt</Width>
+                                                            </RightBorder>
+                                                            <VerticalAlign>Middle</VerticalAlign>
+                                                            <PaddingLeft>2pt</PaddingLeft>
+                                                            <PaddingRight>2pt</PaddingRight>
+                                                          </Style>
+                                                        </Textbox>
+                                                      </CellContents>
+                                                    </TablixHeader>
+                                                  </TablixMember>
+                                                </TablixMembers>
+                                              </TablixMember>
+                                            </TablixMembers>
+                                          </TablixMember>
+                                        </TablixMembers>
+                                      </TablixMember>
+                                    </TablixMembers>
+                                  </TablixMember>
+                                </TablixMembers>
+                                <KeepTogether>true</KeepTogether>
+                              </TablixMember>
+                            </TablixMembers>
+                          </TablixColumnHierarchy>
+                          <TablixRowHierarchy>
+                            <TablixMembers>
+                              <TablixMember>
+                                <TablixMembers>
+                                  <TablixMember>
+                                    <Group Name="first_part_parameter2">
+                                      <GroupExpressions>
+                                        <GroupExpression>=Fields!TEST_PARAMETER_ID.Value</GroupExpression>
+                                      </GroupExpressions>
+                                      <Filters>
+                                        <Filter>
+                                          <FilterExpression>=cint(Fields!METHOD_ID.Value)</FilterExpression>
+                                          <Operator>Equal</Operator>
+                                          <FilterValues>
+                                            <FilterValue>=cint(Parameters!METHOD_ID.Value)</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cint(Fields!PRINT_IN_REPORT.Value)</FilterExpression>
+                                          <Operator>Equal</Operator>
+                                          <FilterValues>
+                                            <FilterValue>=cint(1)</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>319</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>318</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>320</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>5958</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>8389</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>321</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>323</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>324</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>322</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>327</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>328</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>14774</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>943</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                      </Filters>
+                                    </Group>
+                                    <SortExpressions>
+                                      <SortExpression>
+                                        <Value>=Fields!SNO.Value</Value>
+                                      </SortExpression>
+                                    </SortExpressions>
+                                    <TablixMembers>
+                                      <TablixMember>
+                                        <TablixMembers>
+                                          <TablixMember>
+                                            <TablixMembers>
+                                              <TablixMember>
+                                                <TablixMembers>
+                                                  <TablixMember>
+                                                    <TablixMembers>
+                                                      <TablixMember />
+                                                    </TablixMembers>
+                                                  </TablixMember>
+                                                </TablixMembers>
+                                              </TablixMember>
+                                            </TablixMembers>
+                                          </TablixMember>
+                                        </TablixMembers>
+                                      </TablixMember>
+                                    </TablixMembers>
+                                    <KeepTogether>true</KeepTogether>
+                                  </TablixMember>
+                                  <TablixMember>
+                                    <Group Name="second_part_parameter2">
+                                      <GroupExpressions>
+                                        <GroupExpression>=Fields!TEST_PARAMETER_ID.Value</GroupExpression>
+                                      </GroupExpressions>
+                                      <Filters>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>316</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>943</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>315</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>317</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>325</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>326</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>329</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                        <Filter>
+                                          <FilterExpression>=cstr(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>NotEqual</Operator>
+                                          <FilterValues>
+                                            <FilterValue>330</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                      </Filters>
+                                    </Group>
+                                    <SortExpressions>
+                                      <SortExpression>
+                                        <Value>=Fields!SNO.Value</Value>
+                                      </SortExpression>
+                                    </SortExpressions>
+                                  </TablixMember>
+                                  <TablixMember>
+                                    <Group Name="Conclusion2">
+                                      <GroupExpressions>
+                                        <GroupExpression>=Fields!TEST_PARAMETER_ID.Value</GroupExpression>
+                                      </GroupExpressions>
+                                      <Filters>
+                                        <Filter>
+                                          <FilterExpression>=cint(Fields!TEST_PARAMETER_ID.Value)</FilterExpression>
+                                          <Operator>Equal</Operator>
+                                          <FilterValues>
+                                            <FilterValue>=cint(943)</FilterValue>
+                                          </FilterValues>
+                                        </Filter>
+                                      </Filters>
+                                    </Group>
+                                    <SortExpressions>
+                                      <SortExpression>
+                                        <Value>=Fields!TEST_PARAMETER_ID.Value</Value>
+                                      </SortExpression>
+                                    </SortExpressions>
+                                  </TablixMember>
+                                </TablixMembers>
+                              </TablixMember>
+                            </TablixMembers>
+                          </TablixRowHierarchy>
+                          <RepeatRowHeaders>true</RepeatRowHeaders>
+                          <KeepTogether>true</KeepTogether>
+                          <DataSetName>RESULT</DataSetName>
+                          <Top>0.04513in</Top>
+                          <Height>1.22083in</Height>
+                          <Width>4.76144in</Width>
+                          <Style>
+                            <Border>
+                              <Style>None</Style>
+                              <Width>0.25pt</Width>
+                            </Border>
+                            <BottomBorder>
+                              <Style>Solid</Style>
+                            </BottomBorder>
+                          </Style>
+                        </Tablix>
+                      </ReportItems>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                      </Style>
+                    </Rectangle>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+            <TablixRow>
+              <Height>0.17188in</Height>
+              <TablixCells>
+                <TablixCell>
+                  <CellContents>
+                    <Textbox Name="SEPARATION2">
+                      <CanGrow>true</CanGrow>
+                      <KeepTogether>true</KeepTogether>
+                      <Paragraphs>
+                        <Paragraph>
+                          <TextRuns>
+                            <TextRun>
+                              <Value>=Max(Fields!SEPARATION.Value)</Value>
+                              <Style />
+                            </TextRun>
+                          </TextRuns>
+                          <Style />
+                        </Paragraph>
+                      </Paragraphs>
+                      <rd:DefaultName>SEPARATION</rd:DefaultName>
+                      <Style>
+                        <Border>
+                          <Style>None</Style>
+                        </Border>
+                        <PaddingLeft>2pt</PaddingLeft>
+                        <PaddingRight>2pt</PaddingRight>
+                        <PaddingTop>2pt</PaddingTop>
+                        <PaddingBottom>2pt</PaddingBottom>
+                      </Style>
+                    </Textbox>
+                  </CellContents>
+                </TablixCell>
+              </TablixCells>
+            </TablixRow>
+          </TablixRows>
+        </TablixBody>
+        <TablixColumnHierarchy>
+          <TablixMembers>
+            <TablixMember />
+          </TablixMembers>
+        </TablixColumnHierarchy>
+        <TablixRowHierarchy>
+          <TablixMembers>
+            <TablixMember>
+              <Group Name="Pag_no_and_row_no2">
+                <GroupExpressions>
+                  <GroupExpression>=Fields!PAGE_NO.Value</GroupExpression>
+                  <GroupExpression>=iif(isnothing(Fields!PAGE_NO.Value),Fields!ROWNUMBER.Value,"1")</GroupExpression>
+                </GroupExpressions>
+              </Group>
+              <SortExpressions>
+                <SortExpression>
+                  <Value>=Fields!SNO.Value</Value>
+                </SortExpression>
+              </SortExpressions>
+              <TablixMembers>
+                <TablixMember />
+                <TablixMember>
+                  <Visibility>
+                    <Hidden>=Max(Fields!SEPARATION.Value)=""</Hidden>
+                  </Visibility>
+                </TablixMember>
+              </TablixMembers>
+              <KeepTogether>true</KeepTogether>
+            </TablixMember>
+          </TablixMembers>
+        </TablixRowHierarchy>
+        <DataSetName>RESULT</DataSetName>
+        <Filters>
+          <Filter>
+            <FilterExpression>=cint(Fields!METHOD_ID.Value)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>=cint(Parameters!METHOD_ID.Value)</FilterValue>
+            </FilterValues>
+          </Filter>
+          <Filter>
+            <FilterExpression>=cint(Fields!PRINT_IN_REPORT.Value)</FilterExpression>
+            <Operator>Equal</Operator>
+            <FilterValues>
+              <FilterValue>=cint(1)</FilterValue>
+            </FilterValues>
+          </Filter>
+        </Filters>
+        <Top>0.8199in</Top>
+        <Left>0.0125in</Left>
+        <Height>1.47139in</Height>
+        <Width>4.76144in</Width>
+        <ZIndex>4</ZIndex>
+        <Style>
+          <Border>
+            <Style>None</Style>
+          </Border>
+        </Style>
+      </Tablix>
+    </ReportItems>
+    <Height>3.37765in</Height>
+    <Style>
+      <Border>
+        <Style>None</Style>
+      </Border>
+    </Style>
+  </Body>
+  <ReportParameters>
+    <ReportParameter Name="REPORT_ID">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>312839</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Report ID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="METHOD_ID">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>2888</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Method ID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="TEST_PACKAGE_ID">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Test Package ID</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="OPTIONAL_RESULT_TABLE">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>""</Value>
+        </Values>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Optional Result Table?</Prompt>
+      <Hidden>true</Hidden>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="OPTIONAL_REMARK_TABLE">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>REMARK_TABLE_DEFAULT</Value>
+          <Value>NO_REMARK_TABLE</Value>
+        </Values>
+      </DefaultValue>
+      <AllowBlank>true</AllowBlank>
+      <Prompt>Optional Remark Table?</Prompt>
+      <Hidden>true</Hidden>
+      <MultiValue>true</MultiValue>
+    </ReportParameter>
+    <ReportParameter Name="SAMPLE_PER_ROW">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>3</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Sample Per Row (For preview in report builder only)</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="ACCREDITATION_SCOPE_FLAG">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>1</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Is it within the scope of accreditation? (Within scope = 1, out of scope = 0)</Prompt>
+      <ValidValues>
+        <ParameterValues>
+          <ParameterValue>
+            <Value>1</Value>
+            <Label>Yes</Label>
+          </ParameterValue>
+          <ParameterValue>
+            <Value>0</Value>
+            <Label>No</Label>
+          </ParameterValue>
+        </ParameterValues>
+      </ValidValues>
+    </ReportParameter>
+    <ReportParameter Name="ALL_REPORT_METHODS">
+      <DataType>String</DataType>
+      <Nullable>true</Nullable>
+      <Prompt>Method String</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="USER_GROUP_ID">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>User Group Id</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="CLIENT_ID">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Client Id</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="IMAGE_HANDLER_PATH">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>http://10.144.0.39/LIMS/Handler/GetImageHandler.ashx</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Image Handler Path</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="REQURIEMENT">
+      <DataType>String</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>Regulatory Requirement</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Requirement</Prompt>
+    </ReportParameter>
+    <ReportParameter Name="BUSINESS_LOCATION_ID">
+      <DataType>Integer</DataType>
+      <DefaultValue>
+        <Values>
+          <Value>0</Value>
+        </Values>
+      </DefaultValue>
+      <Prompt>Business Location</Prompt>
+    </ReportParameter>
+  </ReportParameters>
+  <Code>Public Function AbbrFixSpelling(ByVal s As String) As String 
+'--Coding for transferring Abbreviation formation from Old LIMS to New LIMS--
+   Dim strBuilder As New System.Text.StringBuilder(s)
+   If s.Contains("Abbreviation:") Then
+      strBuilder.Replace("Abbreviation: ", "")	' -Remove "Abbreviation:" with space	 
+      strBuilder.Replace("Abbreviation : ", "")	' -Remove "Abbreviation :" with space	
+      strBuilder.Replace("Abbreviation:	","")	' -Remove "Abbreviation:" with Tab
+      strBuilder.Replace("Abbreviation :	","")	' -Remove "Abbreviation :" with Tab
+      strBuilder.Replace("	", "")		' -Remove Tab
+      strBuilder.Replace("  ", "")		' -Remove Duoble space
+      Return strBuilder.ToString()
+      Else : Return s
+   End If
+End Function
+</Code>
+  <Width>6.60069in</Width>
+  <Page>
+    <PageHeight>11.69in</PageHeight>
+    <PageWidth>8.27in</PageWidth>
+    <InteractiveHeight>0in</InteractiveHeight>
+    <InteractiveWidth>0in</InteractiveWidth>
+    <LeftMargin>0.7in</LeftMargin>
+    <RightMargin>0.75in</RightMargin>
+    <TopMargin>0.25in</TopMargin>
+    <BottomMargin>0.21in</BottomMargin>
+    <Style />
+  </Page>
+  <rd:ReportID>bf69d13c-0386-401e-904d-8df41b183874</rd:ReportID>
+  <rd:ReportUnitType>Inch</rd:ReportUnitType>
+</Report>
